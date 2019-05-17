@@ -1,0 +1,6 @@
+- id: yarn_audit
+  name: yarn_audit
+  entry: yarn
+  language: node
+  always_run: true
+  args: ['audit']
