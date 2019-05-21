@@ -2,7 +2,6 @@
   name: yarn_audit
   entry: yarn
   language: node
-  always_run: true
   pass_filenames: false
   files: "^(yarn.lock|package.json)$"
   args: ['audit']
