@@ -1,3 +1,5 @@
 # pre-commit
 
-pre-commit hooks
+Hooks to use with https://pre-commit.com
+
+See .pre-commit-hooks.yaml
