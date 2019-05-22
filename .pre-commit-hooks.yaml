@@ -1,7 +1,7 @@
 - id: yarn_audit
   name: yarn_audit
-  entry: yarn
+  entry: bash
   language: node
   pass_filenames: false
   files: "^(yarn.lock|package.json)$"
-  args: ['audit']
+  args: ["-c", "yarn audit || (sleep 60 && yarn audit) || (sleep 120 && yarn audit)"]
