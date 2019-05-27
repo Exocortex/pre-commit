@@ -12,7 +12,7 @@
   pass_filenames: false
   files: "^(yarn.lock|package.json)$"
   args: ["service"]
-- id: threekit_package_json_module
+- id: threekit_module_package_json
   name: threekit_module_package_json
   entry: "check_package_json"
   language: node
