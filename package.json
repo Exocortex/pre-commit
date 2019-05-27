@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "main": "check.js",
   "bin": {
-    "checkpackage": "./check.js"
+    "check_package_json": "./check_package_json.js"
   },
   "dependencies": {
     "@yarnpkg/lockfile": "^1.1.0"

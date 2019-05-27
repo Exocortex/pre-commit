@@ -3,9 +3,8 @@
 const fs = require('fs');
 const lockfile = require('@yarnpkg/lockfile');
 
-const pkg = require('./package.json');
-
-async function main() {
+function main() {
+  let pkg = JSON.parse(fs.readFileSync(`./package.json`, 'utf8'));
   const yarnlock = lockfile.parse(fs.readFileSync('yarn.lock', 'utf8'));
 
   let failures = 0;
@@ -37,7 +36,9 @@ async function main() {
   }
 
   for (const dir of fs.readdirSync('./node_modules/@threekit')) {
-    let pkg2 = require(`./node_modules/@threekit/${dir}/package.json`);
+    let pkg2 = JSON.parse(
+      fs.readFileSync(`./node_modules/@threekit/${dir}/package.json`, 'utf8')
+    );
 
     for (const dep of Object.keys(pkg2.dependencies)) {
       if (deps[dep]) {
@@ -52,6 +53,4 @@ async function main() {
   return failures;
 }
 
-main().then(function(failures) {
-  process.exit(failures);
-});
+process.exit(main());
