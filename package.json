@@ -1,6 +1,6 @@
 {
   "name": "@threekit/pre-commit-package-json",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "main": "check.js",
   "bin": {
     "check_package_json": "./check_package_json.js"
