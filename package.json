@@ -1,7 +1,10 @@
 {
-  "name": "pre-commit-threekit",
-    "version": "0.0.0",
-    "main": "check.js",
+  "name": "@threekit/pre-commit-package-json",
+  "version": "0.0.1",
+  "main": "check.js",
+  "bin": {
+    "check": "./check.js"
+  },
   "dependencies": {
     "@yarnpkg/lockfile": "^1.1.0"
   }
