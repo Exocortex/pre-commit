@@ -1,4 +1,8 @@
 {
   "name": "pre-commit-threekit",
-  "version": "0.0.0"
+    "version": "0.0.0",
+    "main": "check.js",
+  "dependencies": {
+    "@yarnpkg/lockfile": "^1.1.0"
+  }
 }

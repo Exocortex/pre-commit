@@ -5,3 +5,9 @@
   pass_filenames: false
   files: "^(yarn.lock|package.json)$"
   args: ["-c", "yarn audit || (sleep 60 && yarn audit) || (sleep 120 && yarn audit)"]
+- id: threekit_package_json
+  name: threekit_package_json
+  entry: "node check.js"
+  language: node
+  pass_filenames: false
+  files: "^(yarn.lock|package.json)$"
