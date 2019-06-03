@@ -1,3 +1,10 @@
+- id: npm_audit
+  name: npm_audit
+  entry: bash
+  language: node
+  pass_filenames: false
+  files: "^(package-lock.lock|package.json)$"
+  args: ["-c", "npm audit || (sleep 60 && npm audit) || (sleep 120 && npm audit)"]
 - id: yarn_audit
   name: yarn_audit
   entry: bash
