@@ -50,7 +50,7 @@ function main() {
         fs.readFileSync(`./node_modules/@threekit/${dir}/package.json`, 'utf8')
       );
 
-      for (const dep of Object.keys(pkg2.dependencies)) {
+        for (const dep of Object.keys(pkg2.dependencies || {})) {
         if (deps[dep]) {
           console.log(
             `${dep} is a dependency in both our package.json and @threekit/${dir}'s.   Please move it into peerDependencies in @threekit/${dir}`
