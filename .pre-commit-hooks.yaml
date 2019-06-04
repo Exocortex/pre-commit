@@ -4,14 +4,21 @@
   language: node
   pass_filenames: false
   files: "^(package-lock.lock|package.json)$"
-  args: ["-c", "npm audit || (sleep 60 && npm audit) || (sleep 120 && npm audit)"]
+  args: ["-c", "npm audit || (sleep 60 && npm audit)"]
 - id: yarn_audit
   name: yarn_audit
   entry: bash
   language: node
   pass_filenames: false
   files: "^(yarn.lock|package.json)$"
-  args: ["-c", "yarn audit || (sleep 60 && yarn audit) || (sleep 120 && yarn audit)"]
+  args: ["-c", "yarn audit || (sleep 60 && yarn audit)"]
+- id: yarn_audit_only_dependencies
+  name: yarn audit --groups dependencies
+  entry: bash
+  language: node
+  pass_filenames: false
+  files: "^(yarn.lock|package.json)$"
+  args: ["-c", "yarn audit --groups dependencies || (sleep 60 && yarn audit --groups dependencies)"]
 - id: threekit_package_json
   name: threekit_package_json
   entry: "check_package_json"
