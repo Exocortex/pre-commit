@@ -32,20 +32,23 @@ function main() {
     }
     return failures;
   } else if (process.argv[2] === 'service') {
-    let yarndeps = new Set();
+    let yarndeps = {};
     for (const dep of Object.keys(yarnlock.object)) {
       let m = dep.match(/^(@threekit\/.*|@types\/.*|react)\@(.*)/);
       if (m) {
-        if (yarndeps.has(m[1])) {
+        if (
+          yarndeps[m[1]] &&
+          yarndeps[m[1]] !== yarnlock.object[dep].integrity
+        ) {
           console.log(`${m[1]} included multiple times in yarn.lock`);
           failures += 1;
         } else {
-          yarndeps.add(m[1]);
+          yarndeps[m[1]] = yarnlock.object[dep].integrity;
         }
       }
     }
-//we disabled this check after enhancing the above check
-/*
+    //we disabled this check after enhancing the above check
+    /*
     for (const dir of fs.readdirSync('./node_modules/@threekit')) {
       let pkg2 = JSON.parse(
         fs.readFileSync(`./node_modules/@threekit/${dir}/package.json`, 'utf8')
