@@ -11,14 +11,14 @@
   language: node
   pass_filenames: false
   files: "^(yarn.lock|package.json)$"
-  args: ["-c", "yarn audit || (sleep 60 && yarn audit)"]
+  args: ["-c", "echo Yarn audit is disabled.  FIXME."]
 - id: yarn_audit_only_dependencies
-  name: yarn audit --groups dependencies
+  name: echo "skipping yarn audit FIXME"
   entry: bash
   language: node
   pass_filenames: false
   files: "^(yarn.lock|package.json)$"
-  args: ["-c", "yarn audit --groups dependencies || (sleep 60 && yarn audit --groups dependencies)"]
+  args: ["-c", "echo Yarn audit is disabled.  FIXME."]
 - id: threekit_package_json
   name: threekit_package_json
   entry: "check_package_json"
